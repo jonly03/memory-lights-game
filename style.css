@@ -1,10 +1,18 @@
+:root {
+  /* Declare dimensions as variables to reuse */
+  --lightbulb_size_default: 200px;
+  --lightbulb_size_576: 50px;
+  --lightbulb_size_768: 80px;
+  --lightbulb_size_992: 150px;
+  --lightbulb_container_margin: 5px;
+}
 * {
   box-sizing: border-box;
 }
 
 .light_container {
-  width: 80px;
-  height: 80px;
+  width: var(--lightbulb_size_default);
+  height: var(--lightbulb_size_default);
 
   /* To give my lights a bit of spacing between them */
   margin: 5px;
@@ -26,9 +34,72 @@ body {
 /* Fix the main elt's width to only fit 3 div.light_container (plus their margins) and make it wrap to get the grid.
 
 [x] [x] [x] where [x] is a box of 80px and the space is 5px margin adds up to 80px*3 + (5px+5px)*3 = 240px + 30px = 270px
+
+Use CSS calc() function to calculate the width on the fly
 */
 main {
-  width: 270px;
+  width: calc(
+    (var(--lightbulb_size_default) * 3) +
+      (var(--lightbulb_container_margin) * 6)
+  );
   display: flex;
   flex-wrap: wrap;
+}
+
+/* 
+Style your divs and images according to the following breakpoints:
+
+For width <= 576px:
+    Divs => 1px blue border
+    Imgs => 50x50
+For width <= 768px
+    Divs => 2px teal border
+    Imgs => 80x80
+For width <= 992px
+    Divs => 3px red border
+    Imgs => 150x150
+Everything else
+    Divs => 4pm pink border
+    Imgs => 200x200
+
+*/
+
+@media (max-width: 576px) {
+  main {
+    width: calc(
+      (var(--lightbulb_size_576) * 3) + (var(--lightbulb_container_margin) * 6)
+    );
+  }
+
+  .light_container {
+    width: var(--lightbulb_size_576);
+    height: var(--lightbulb_size_576);
+    border: 1px solid blue;
+  }
+}
+@media (max-width: 768px) {
+  main {
+    width: calc(
+      (var(--lightbulb_size_768) * 3) + (var(--lightbulb_container_margin) * 6)
+    );
+  }
+
+  .light_container {
+    width: var(--lightbulb_size_768);
+    height: var(--lightbulb_size_768);
+    border: 2px solid red;
+  }
+}
+@media (max-width: 992px) {
+  main {
+    width: calc(
+      (var(--lightbulb_size_992) * 3) + (var(--lightbulb_container_margin) * 6)
+    );
+  }
+
+  .light_container {
+    width: var(--lightbulb_size_992);
+    height: var(--lightbulb_size_992);
+    border: 1px solid pink;
+  }
 }
