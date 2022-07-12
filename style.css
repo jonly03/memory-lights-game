@@ -1,13 +1,6 @@
-/* Use CSS to style your layout to look similar to the snapshot above (feel free to customize it as you’d like). Some ideas to get you started:
-Give the main element a background image
-All the image container divs can share styles (=> class)
-Background color
-Border radius
-Border
-Margin
-Box shadow
-All the 💡 images have some space around them
- */
+* {
+  box-sizing: border-box;
+}
 
 .light_container {
   width: 80px;
@@ -22,16 +15,20 @@ All the 💡 images have some space around them
   height: 100%;
 }
 
-/* Force my div.lights_container elements to line up in a row */
-.lights_row {
-  display: flex;
-  justify-content: center;
-}
-
 /* Center the main element dead center*/
 body {
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+/* Fix the main elt's width to only fit 3 div.light_container (plus their margins) and make it wrap to get the grid.
+
+[x] [x] [x] where [x] is a box of 80px and the space is 5px margin adds up to 80px*3 + (5px+5px)*3 = 240px + 30px = 270px
+*/
+main {
+  width: 270px;
+  display: flex;
+  flex-wrap: wrap;
 }
