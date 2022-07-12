@@ -1,9 +1,37 @@
-/* Resize the light bulb container and make the light bulb span the whole container */
+/* Use CSS to style your layout to look similar to the snapshot above (feel free to customize it as you’d like). Some ideas to get you started:
+Give the main element a background image
+All the image container divs can share styles (=> class)
+Background color
+Border radius
+Border
+Margin
+Box shadow
+All the 💡 images have some space around them
+ */
+
 .light_container {
   width: 80px;
   height: 80px;
+
+  /* To give my lights a bit of spacing between them */
+  margin: 5px;
 }
+
 .light_bulb {
   width: 100%;
   height: 100%;
+}
+
+/* Force my div.lights_container elements to line up in a row */
+.lights_row {
+  display: flex;
+  justify-content: center;
+}
+
+/* Center the main element dead center*/
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
