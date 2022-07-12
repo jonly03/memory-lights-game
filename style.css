@@ -15,7 +15,7 @@
   height: var(--lightbulb_size_default);
 
   /* To give my lights a bit of spacing between them */
-  margin: 5px;
+  margin: var(--lightbulb_container_margin);
 }
 
 .light_bulb {
